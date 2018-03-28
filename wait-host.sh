@@ -63,10 +63,19 @@ function echoerr() {
 }
 
 function do_wait() {
-    until nc -z -w 1 "$HOST" "$PORT"; do
+    while :
+    do
+        # Check for connection on host
+        nc -z -w 1 "$HOST" "$PORT"
         result=$?
-        echoerr "$MESSAGE"
-        sleep $DELAY
+
+        # Display message on error
+        if [ $result -ne 0 ]; then
+            echoerr "$MESSAGE"
+            sleep $DELAY
+        else
+            break
+        fi
     done
     
     return $result
