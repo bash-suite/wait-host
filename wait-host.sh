@@ -63,7 +63,7 @@ function echoerr() {
 }
 
 function do_wait() {
-    until nc -z "$HOST" "$PORT"; do
+    until nc -z -w 1 "$HOST" "$PORT"; do
         result=$?
         echoerr "$MESSAGE"
         sleep $DELAY
@@ -87,7 +87,7 @@ function wait_for_host() {
             wait
         done
         # Last check to get an error at the end of the timeout
-        nc -z "$HOST" "$PORT"
+        nc -z -w 1 "$HOST" "$PORT"
         result=$?
     else
         do_wait
