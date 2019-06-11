@@ -1,11 +1,12 @@
-## wait-host
+## ![](https://github.com/docker-suite/artwork/raw/master/logo/png/logo_32.png) wait-host
+![License: MIT](https://img.shields.io/github/license/docker-suite/goss.svg?color=green&style=flat-square)
 
 `wait-host.sh` is an sh script that will wait on the availability of a host and TCP port.  
 Specially designed to be used in Alpine container, It is useful for synchronizing interdependent services, such as linked docker containers. 
 You can use it to wait for a database to be ready, for php-fpm connection, ...
 
 
-### Usage
+## ![](https://github.com/docker-suite/artwork/raw/master/various/pin/png/pin_16.png) Usage
 
 ```
 Usage: wait-host.sh [host:port] [OPTIONS] [-- command args]
